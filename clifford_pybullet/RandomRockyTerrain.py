@@ -25,7 +25,7 @@ class RandomRockyTerrain(Terrain):
         blockHeights = gaussian_filter(blockHeights, sigma=self.terrainParams["smoothing"])
         gridZ += blockHeights
 
-        # add more small noise
+        # Loops through perlinScale in the yaml file and adds "small noise".
         for i in range(len(self.terrainParams['perlinScale'])):
             smallNoise = self.perlinNoise(
                 self.gridX.reshape(-1),
@@ -35,12 +35,12 @@ class RandomRockyTerrain(Terrain):
             )
             gridZ += smallNoise.reshape(gridZ.shape)
 
-        # add sharp point noise
+        # Adds sharp point noise
         numSharpPoints = int(self.mapArea*self.terrainParams['sharpDensity'])
         if numSharpPoints > 0:
             gridZ += self.sharpNoise(numSharpPoints,self.terrainParams['maxSharpHeight'],self.gridX,self.gridY)
 
-        # make center flat for initial robot start position
+        # Makes center flat for initial robot start position
         gridZ = self.flatten(gridZ, [0, 0])
         self.updateTerrain(gridZ - (np.max(gridZ) + np.min(gridZ)) / 2.0)
 

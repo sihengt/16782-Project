@@ -51,6 +51,9 @@ class PurePursuit:
         # For finding lookahead
         self.lastFoundIndex = 1
 
+    def reset(self):
+        self.lastFoundIndex = 1
+
     def reset_tracker(self):
         self.lastError = 0
         self.errorSum = 0

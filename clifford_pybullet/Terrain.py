@@ -16,8 +16,8 @@ class Terrain:
 
     def setParams(self, terrainParams):
         """
-        Creates the map grid via mapWidth / Length, scales the coordinates according to scale, and centers coordinates 
-        around zero.
+        Creates the map grid via mapWidth / mapLength, scales the coordinates according to scale, 
+        and centers coordinates around zero.
 
         Populates self.gridX, self.gridY, self.mapArea and self.mapBounds.
         """

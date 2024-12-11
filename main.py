@@ -66,10 +66,15 @@ def main(data_dir):
     d_previous_states = []
     d_actions = []
 
+    # TODO: change to while true loop that closes if C++ sends close / interrupt signal
+    # TODO: add sockets to wait for C++
+    # TODO: C++ will send trajectory to follow
+
     for i_traj in range(N_TRAJECTORIES_TO_COLLECT):
         print("CURRENTLY COLLECTING TRAJECTORY {}.".format(i_traj))
+
         # Reset pure pursuit parameters (TODO: tidy)
-        pure_pursuit.lastFoundIndex = 1
+        pure_pursuit.reset()
         # Reset robot pose
         sim.resetRobot(pose=((0,0),(0, 0, np.sqrt(2)/2, np.sqrt(2)/2)))
 
@@ -86,7 +91,8 @@ def main(data_dir):
             # radius = 4.0
             # ref_traj = pure_pursuit.gen_traj_circle(-radius, 0, radius, 1000)
 
-        # Plot feasible reference trajectory and goal:
+        # TODO: Plot received plan and goal. You have to change ref_traj to what you received from
+        # C++. ref_traj contains (x, y, theta)
         car_plot.plot_ref_traj(ref_traj[:,:2])
         car_plot.plot_car(ref_traj[-1, :], is_goal=True)
 

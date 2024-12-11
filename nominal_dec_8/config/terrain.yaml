@@ -5,15 +5,15 @@ color: [0.82,0.71,0.55,1]
 
 # random cell blocks
 averageAreaPerCell: 0.3
-cellPerlinScale: 0.1
+cellPerlinScale: 0.6
 cellHeightScale: 0.4
 smoothing: 0
 
 # perlin noise
-# perlinScale: [5, 0.2]
-# perlinHeightScale: [0.075, 0] #[0.15,1]
-perlinScale: [2, 0.0]
-perlinHeightScale: [0.15, 1] #[0.15,1]
+perlinScale: [5, 0.2]
+perlinHeightScale: [0.075, 0] #[0.15,1]
+# perlinScale: [2, 0.0]
+# perlinHeightScale: [0.15, 1] #[0.15,1]
 # perlinScale: [3, 0.1]
 # perlinHeightScale: [0.075, 0] #[0.15,1]
 
@@ -27,6 +27,5 @@ flatRadius: 0.5
 blendRadius: 1
 
 # Turn off if you want this to be constantly random
-seed: 1
 
 testEnv: False
